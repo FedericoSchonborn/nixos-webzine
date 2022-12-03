@@ -3,7 +3,6 @@
 
   issues = [
     ./issues/001.nix
-    ./issues/002.nix
   ];
 
   website = {
@@ -11,8 +10,8 @@
     style = builtins.readFile ./style.html;
     header = ''
       <header>
-        <h2 id="title"><a href="https://${website.url}"><span><img src="static/NixOS_logo.svg" alt="❄️">NixOS Webzine</span></a></h2>
-        <p id="banner"><span aria-hidden="true">☕</span><em>Your tasty dose of NixOS news</em><span aria-hidden="true">☕</span></p>
+        <h2 id="title"><a href="${website.url}"><span><img src="static/NixOS_logo.svg" alt="❄️">NixOS Webzine</span></a></h2>
+        <p id="banner"><span aria-hidden="true">☕</span><em>Your tasty dose of reproducible NixOS news</em><span aria-hidden="true">☕</span></p>
       </header>
     '';
   };
@@ -49,11 +48,11 @@ in
             <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
             <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-            <link rel="alternate" type="application/rss+xml" href="https://${website.url}/atom.xml">
+            <link rel="alternate" type="application/rss+xml" href="${website.url}/atom.xml">
             <meta property="og:title" content="NixOS webzine ${issue.number}" />
             <meta property="og:description" content="Webzine created by volunteers who are passionate about the NixOS project development." />
-            <meta property="og:url" content="https://${website.url}/issue-${issue.number}.html" />
-            <meta property="og:image" content="https://${website.url}/images/logo.png" />
+            <meta property="og:url" content="${website.url}/issue-${issue.number}.html" />
+            <meta property="og:image" content="${website.url}/images/logo.png" />
             <meta property="og:type" content="website" />
             <meta property="og:locale" content="en_EN" />
             <title>NixOS webzine ${issue.number}</title>
@@ -145,12 +144,24 @@ in
           ''
           else ""
         }
+
+          <!-- AUTHORS -->
+          ${
+          if (builtins.length issue.authors) != 0
+          then ''
+            <article id="authors">
+            <div class="snowflakes" aria-hidden="true">❄ ❄ ❄</div>
+            <h2>Authors</h2>
+            ${pkgs.lib.concatStringsSep ", " issue.authors}
+            </article>
+          ''
+          else ""
+        }
             </main>
             <footer>
               <hr />
               <p id="license">Content under <a class="permalink" href="https://creativecommons.org/licenses/by/3.0/legalcode">CC-BY-NC-3.0</a>.
-                Artworks are under their own licenses.
-                <br /><a class="permalink" href="atom.xml">Feed ATOM</a>
+                Artworks are under their own licenses. <a class="permalink" href="atom.xml">Feed ATOM</a>
               </p>
             </footer>
           </body>
@@ -167,11 +178,11 @@ in
             <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
             <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-            <link rel="alternate" type="application/rss+xml" href="https://${website.url}/atom.xml">
+            <link rel="alternate" type="application/rss+xml" href="${website.url}/atom.xml">
             <meta property="og:title" content="NixOS webzine" />
             <meta property="og:description" content="Webzine created by volunteers who are passionate about the NixOS project development." />
-            <meta property="og:url" content="https://${website.url}/index.html" />
-            <meta property="og:image" content="https://${website.url}/images/logo.png" />
+            <meta property="og:url" content="${website.url}/index.html" />
+            <meta property="og:image" content="${website.url}/images/logo.png" />
             <meta property="og:type" content="website" />
             <meta property="og:locale" content="en_EN" />
             <title>NixOS webzine index</title>
@@ -209,8 +220,8 @@ in
                   <li><a class="permalink" href="atom.xml">Webzine feed</a></li>
                   <li><a class="permalink" href="https://discourse.nixos.org">Official discourse forum</a></li>
                   <li>Reddit: <a class="permalink" href="https://www.reddit.com/r/nixos/">Subreddit /r/nixos/</a></li>
-                  <li>Matrix: channel <em>#community:nixos.org</em></li>
-                  <li>Mastodon: Search for tag #NixOS</li>
+                  <li>Matrix: channel <a class="permalink" href="https://matrix.to/#/#community:nixos.org">#community:nixos.org</a></li>
+                  <li>Mastodon: Search for tag <em>#NixOS</em></li>
                   <li>Twitter: <a class="permalink" href="https://twitter.com/hashtag/nixos">#nixos</a></li>
                 </ul>
               </article>
@@ -225,8 +236,7 @@ in
             <footer>
               <hr />
               <p id="license">Content under <a class="permalink" href="https://creativecommons.org/licenses/by/3.0/legalcode">CC-BY-NC-3.0</a>.
-                Artworks are under their own licenses.
-                <br /><a class="permalink" href="atom.xml">Feed ATOM</a>
+                Artworks are under their own licenses. <a class="permalink" href="atom.xml">Feed ATOM</a>
               </p>
             </footer>
           </body>
