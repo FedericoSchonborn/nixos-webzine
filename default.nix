@@ -6,7 +6,7 @@
   ];
 
   website = {
-    url = "https://webzine.snowflake.ovh/";
+    url = "https://webzine.snowflake.ovh";
     style = builtins.readFile ./style.html;
     header = ''
       <header>
@@ -25,6 +25,7 @@ in
       ''
         ${pkgs.busybox}/bin/mkdir -p $out/static
         ${pkgs.busybox}/bin/cp ${index_generator}/* $out/
+        ${pkgs.busybox}/bin/cp ${atom}/* $out/
         ${pkgs.busybox}/bin/cp -fr $src/* $out/static/
       ''
       + (
@@ -46,13 +47,13 @@ in
             <meta charset="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-            <link rel="alternate" type="application/rss+xml" href="${website.url}/atom.xml">
-            <meta property="og:title" content="NixOS webzine ${issue.number}" />
+            <link rel="icon" type="image/png" sizes="32x32" href="/static/NixOS_logo.svg">
+            <link rel="icon" type="image/png" sizes="16x16" href="/static/NixOS_logo.svg">
             <meta property="og:description" content="Webzine created by volunteers who are passionate about the NixOS project development." />
+            <link rel="alternate" type="application/rss+xml" href="${website.url}/atom.xml">
+            <meta property="og:title" content="NixOS webzine issue ${issue.number}" />
             <meta property="og:url" content="${website.url}/issue-${issue.number}.html" />
-            <meta property="og:image" content="${website.url}/images/logo.png" />
+            <meta property="og:image" content="${website.url}/static/NixOS_logo.svg" />
             <meta property="og:type" content="website" />
             <meta property="og:locale" content="en_EN" />
             <title>NixOS webzine ${issue.number}</title>
@@ -86,7 +87,7 @@ in
           then ''
             <article id="tips">
             <div class="snowflakes" aria-hidden="true">❄ ❄ ❄</div>
-            <h2>Tips</h2>
+            <h2>Nix Tips</h2>
             ${issue.tips}
             </article>
           ''
@@ -127,6 +128,24 @@ in
                 </a>
                 <figcaption>${issue.artwork.caption} - by ${issue.artwork.author}</figcaption>
             </figure>
+            </article>
+          ''
+          else ""
+        }
+
+          <!-- EVENTS -->
+          ${
+          if (builtins.length issue.events) != 0
+          then ''
+            <article id="events">
+            <div class="snowflakes" aria-hidden="true">❄ ❄ ❄</div>
+            <h2>Events</h2>
+            <ul>
+                ${pkgs.lib.concatStringsSep "\n" (builtins.map (item: ''
+                <li>${item.text} [<a href="${item.url}" class="permalink">link</a>]</li>
+              '')
+              issue.events)}
+            </ul>
             </article>
           ''
           else ""
@@ -175,17 +194,17 @@ in
           <head>
             <meta charset="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="/static/NixOS_logo.svg">
+            <link rel="icon" type="image/png" sizes="32x32" href="/static/NixOS_logo.svg">
+            <link rel="icon" type="image/png" sizes="16x16" href="/static/NixOS_logo.svg">
             <link rel="alternate" type="application/rss+xml" href="${website.url}/atom.xml">
             <meta property="og:title" content="NixOS webzine" />
             <meta property="og:description" content="Webzine created by volunteers who are passionate about the NixOS project development." />
             <meta property="og:url" content="${website.url}/index.html" />
-            <meta property="og:image" content="${website.url}/images/logo.png" />
+            <meta property="og:image" content="${website.url}/static/NixOS_logo.svg" />
             <meta property="og:type" content="website" />
             <meta property="og:locale" content="en_EN" />
-            <title>NixOS webzine index</title>
+            <title>NixOS webzine homepage</title>
             ${website.style}
           </head>
 
@@ -226,9 +245,23 @@ in
                 </ul>
               </article>
 
+              <article id="learn">
+                <h2>Learn NixOS</h2>
+                <p>New to NixOS? Want to learn more about it?</p>
+                <ul>
+                  <li><a class="permalink" href="https://nixos.org">NixOS official website</a></li>
+                  <li><a class="permalink" href="https://search.nixos.org/packages">Package search engine</a></li>
+                  <li><a class="permalink" href="https://nixos.org/manual/nixos/stable/">The NixOS manual</a></li>
+                  <li><a class="permalink" href="https://nixos.org/manual/nixpkgs/stable/">nixpkgs manual</a></li>
+                  <li><a class="permalink" href="https://nixos.org/manual/nix/stable/">nix package manager manual</a></li>
+                  <li><a class="permalink" href="https://nix.dev/">Learn the nix language on nix.dev</a></li>
+                  <li><a class="permalink" href="https://nixos.org/guides/nix-pills/">Learn how nix works on nix-pills</a></li>
+                </ul>
+              </article>
+
               <article id="contribute">
                 <h2>How to contribute</h2>
-                <p>If you want to contribute to the Webzine, from a simple contribution suggesting a link or a news to a large or regular contribution, we do all the work publicly with Git.
+                <p>If you want to contribute to the Webzine, from a simple to a regular contribution, we do all the work publicly with Git.
                   <a class="permalink" href="https://tildegit.org/solene/nixos-webzine/">Link to the Git repository.</a>
                 </p>
               </article>
@@ -242,4 +275,46 @@ in
           </body>
         </html>
       '';
+
+
+   atom = pkgs.writeTextDir "atom.xml" ''
+     <?xml version="1.0" encoding="utf-8"?>
+       <feed xmlns="http://www.w3.org/2005/Atom">
+       <id>${website.url}</id>
+       <title>NixOS Webzine</title>
+       <icon>${website.url}/static/NixOS_logo.svg</icon>
+       <link rel="alternate" type="text/html" href="${website.url}/" />
+       <link rel="self" type="application/atom+xml" href="${website.url}/atom.xml" />
+       <author>
+         <name>NixOS Webzine contributors</name>
+       </author>
+       <updated>${let last_issue = import (builtins.head (pkgs.lib.lists.reverseList issues)); in last_issue.date}T00:00:00Z</updated>
+
+       ${pkgs.lib.concatStringsSep "\n" (builtins.map (element: let
+         issue = import element;
+       in ''
+         <entry>
+           <title type="text">Issue #${issue.number}</title>
+           <id>tag:${website.url},2022:${issue.number}</id>
+           <updated>${issue.date}T00:00:00Z</updated>
+           <link rel="alternate" type="text/html" href="${website.url}/issue-${issue.number}.html" />
+           <summary type="html">
+           <![CDATA[
+              ${
+              if (builtins.length issue.news) != 0
+              then ''
+                <ul>
+                    ${pkgs.lib.concatStringsSep "\n" (builtins.map (item: ''
+                    <li>${item}</li>
+                  '')
+                  issue.news)}
+                </ul>
+              ''
+              else ""
+            }
+           ]]>
+           </summary>
+         </entry>
+       '') (pkgs.lib.lists.reverseList issues))}
+       </feed>'';
   }

@@ -1,145 +1,149 @@
 <style>
-      #title {
-          text-align: center;
-          font-size:3em;
-          font-weight:bold;
-          margin: 0.75em auto;
-          text-shadow: 2px 2px 2px grey;
-      }
+  #title {
+    text-align: center;
+    font-size:3em;
+    font-weight:bold;
+    margin: 0.75em auto;
+    text-shadow: 2px 2px 2px grey;
+  }
 
-      #title a span img {
-          border: none;
-          width: 60px;
-          padding: 0;
-          margin-right: 10px;
-      }
+  #title a span img {
+    border: none;
+    width: 60px;
+    padding: 0;
+    margin-right: 10px;
+  }
 
-      #title a {
-          text-decoration: none;
-      }
+  #title a {
+    text-decoration: none;
+  }
 
-      #banner {
-          border-top: .2em double black;
-          border-bottom: .2em double black;
-          padding: .5em;
-          margin-bottom: 2em;
-          text-align:center;
-          display: flex;
-          justify-content: space-between;
-      }
+  #banner {
+    border-top: .2em double black;
+    border-bottom: .2em double black;
+    padding: .5em;
+    margin-bottom: 2em;
+    text-align:center;
+    display: flex;
+    justify-content: space-between;
+  }
 
-      .snowflakes {
-          margin: auto;
-          text-align: center;
-      }
+  .snowflakes {
+    margin: auto;
+    text-align: center;
+  }
 
-      .permalink {
-          color: blue;
-          text-decoration: underline;
-      }
+  .permalink {
+    color: blue;
+    text-decoration: underline;
+  }
 
-      a {
-          color: black;
-          text-decoration: underline;
-      }
+  a {
+    color: black;
+    text-decoration: underline;
+  }
 
-      .permalink::after { content: " ↩"; }
-      .permalink:hover { color: darkblue; }
+  .permalink::after { content: " ↩"; }
+  .permalink:hover { color: darkblue; }
 
-      h1 {
-          font-size: 1.5em;
-          line-height: 0.9em;
-      }
+  h1 {
+    font-size: 1.5em;
+    line-height: 0.9em;
+  }
 
-      p {
-          text-align: justify;
-          text-justify: auto;
-      }
+  p {
+    text-align: justify;
+    text-justify: auto;
+  }
 
-      pre {
-          overflow: scroll;
-      }
+  figure {
+    text-align: center;
+  }
 
-      html, body {
-          font-size: 1.1em;
-          font-family:serif;
-          background-color: #fff;
-      }
+  pre {
+    overflow: scroll;
+  }
 
-      body {
-          margin: 1em auto;
-          padding-left: 30px;
-          padding-right: 30px;
-          padding-bottom: 30px;
-          max-width: 900px;
-          border: 1px solid #111;
-          background-color: #eee;
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          line-height: 1.5;
-      }
+  html, body {
+    font-size: 1.1em;
+    font-family:serif;
+    background-color: #fff;
+  }
 
-      img {
-          max-width: 100%;
-          height: auto;
-          margin: auto;
-          border: 3px solid black;
-          padding: .25em;
-      }
+  body {
+    margin: 1em auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    max-width: 900px;
+    border: 1px solid #111;
+    background-color: #eee;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    line-height: 1.5;
+  }
 
-      ul {
-          padding-left: .5em;
-      }
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    border: 3px solid black;
+    padding: .25em;
+  }
 
-      blockquote {
-          position: relative;
-          padding-top: 1rem;
-          padding-bottom: 2.2rem;
-      }
+  ul {
+    padding-left: .5em;
+  }
 
-      blockquote:before,
-      blockquote:after {
-          position: absolute;
-          font-size: 4rem;
-          color: rgba(128,128,128,0.5);
-      }
+  blockquote {
+    position: relative;
+    padding-top: 1rem;
+    padding-bottom: 2.2rem;
+  }
 
-      blockquote:before {
-          content: open-quote;
-          left: -1rem;
-          top: -1.5rem;
-      }
+  blockquote:before,
+  blockquote:after {
+    position: absolute;
+    font-size: 4rem;
+    color: rgba(128,128,128,0.5);
+  }
 
-      blockquote:after {
-          content: close-quote;
-          text-align: right;
-          width: 100%;
-      }
+  blockquote:before {
+    content: open-quote;
+    left: -1rem;
+    top: -1.5rem;
+  }
 
-      cite {
-          font-size: smaller;
-          text-align: right;
-          width: 100%;
-          display: block;
-      }
+  blockquote:after {
+    content: close-quote;
+    text-align: right;
+    width: 100%;
+  }
 
-      code {
-          background-color: #8DF;
-          padding-left: 3px;
-          padding-right: 3px;
-      }
+  cite {
+    font-size: smaller;
+    text-align: right;
+    width: 100%;
+    display: block;
+  }
 
-      @media print {
-          body { background-color:white; max-width:100%;}
-      }
+  code {
+    background-color: #8DF;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
 
-      @media (prefers-color-scheme: dark) {
-          body { color: #ccc; background-color: #222; }
-          html { background-color: black; }
-          .permalink { color: deepskyblue; }
-          img { border-color: #ccc; }
-          #banner { border-color:#ccc; }
-          a { color: #ccc; }
-          code { background-color: black; color: lightgreen; }
-          .permalink:hover { color: plum; }
-      }
+  @media print {
+    body { background-color:white; max-width:100%;}
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body { color: #ccc; background-color: #222; }
+    html { background-color: black; }
+    .permalink { color: deepskyblue; }
+    img { border-color: #ccc; }
+    #banner { border-color:#ccc; }
+    a { color: #ccc; }
+    code { background-color: black; color: lightgreen; }
+    .permalink:hover { color: plum; }
+  }
 </style>
