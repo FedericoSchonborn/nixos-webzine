@@ -6,8 +6,8 @@
   ];
 
   website = {
-    url = "https://webzine.snowflake.ovh";
-    domain = "webzine.snowflake.ovh";
+    url = "https://webzine.nixos.cafe";
+    domain = "webzine.nixos.cafe";
     style = builtins.readFile ./style.html;
     header = ''
       <header>
