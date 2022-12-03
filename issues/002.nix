@@ -24,6 +24,12 @@ let
 
     # { text = ""; url = ""; }
     events = [
+      {
+        date = "2023-02-04 to 2023-02-05";
+        where = "Brussels, Europe";
+        text = "FOSDEM 2023";
+        url = "https://discourse.nixos.org/t/fosdem-2023-nix-and-nixos-devroom/23133";
+      }
     ];
 
     # need some HTML to wrap the content
