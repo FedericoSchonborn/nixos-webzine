@@ -5,7 +5,7 @@ let
 
     news = [
       ''NixOS 22.11 has been released 🥳 <a href="https://nixos.org/blog/announcements.html#nixos-22.11" class="permalink">Announcement</a>''
-      ''This webzine is alive! A cozy place to read about NixOS news in a funny format.''
+      ''This webzine is alive! A cozy place to read about NixOS news in a fun format.''
       ''The community reached the top 10 of the most active GitHub project! <a href="https://discourse.nixos.org/t/another-moment-of-awesome-nixpkgs-top-10/23150" class="permalink">source</a>''
       ''The community is now collaborating directly with GitHub to improve the contributors experience <a href="https://discourse.nixos.org/t/nixos-github-collaboration/23432" class="permalink">source</a>''
     ];
