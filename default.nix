@@ -244,7 +244,7 @@ in
                   <li>Matrix: channel <a class="permalink" href="https://matrix.to/#/#community:nixos.org">#community:nixos.org</a></li>
                   <li>Mastodon: Search for tag <em>#NixOS</em></li>
                   <li><a class="permalink" href="https://discord.gg/RbvHtGa">Discord server</a></li>
-                  <li><a class="permalink" href="https://t.me/nixos_en">Telegram English group</a></li>
+                  <li>Telegram: <a class="permalink" href="https://t.me/nixos_en">English users group</a>, <a class="permalink href="https://t.me/nixos_webzine">webzine feed</a></li>
                   <li>Twitter: <a class="permalink" href="https://twitter.com/hashtag/nixos">#nixos</a></li>
                 </ul>
               </article>
