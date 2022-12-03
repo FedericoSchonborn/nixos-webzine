@@ -3,13 +3,19 @@
           text-align: center;
           font-size:3em;
           font-weight:bold;
-          margin:0.75em auto;
+          margin: 0.75em auto;
           text-shadow: 2px 2px 2px grey;
       }
 
       #title a span img {
           border: none;
-          width: 50%;
+          width: 60px;
+          padding: 0;
+          margin-right: 10px;
+      }
+
+      #title a {
+          text-decoration: none;
       }
 
       #banner {
@@ -37,7 +43,7 @@
           text-decoration: underline;
       }
 
-      .permalink::before { content: "↗ "; }
+      .permalink::after { content: " ↩"; }
       .permalink:hover { color: darkblue; }
 
       h1 {
