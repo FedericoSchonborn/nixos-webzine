@@ -20,7 +20,7 @@ let
     links = [
     ];
 
-    # { text = ""; url = ""; }
+    # { text = ""; url = ""; date = ""; where = "";}
     events = [
     ];
 
