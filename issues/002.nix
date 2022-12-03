@@ -1,24 +1,34 @@
 let
   issue = {
     number = "002";
+    date = "";
 
     links = [
-      ''hello, this is a link to <a href="hello">here</a>''
+      {
+        text = ''hello, this is a link to <a href="hello">here</a>'';
+        url = "https://something";
+      }
     ];
 
     news = [
       "Wow, such a thing!"
     ];
 
-    tips = "";
+    tips = ''
+
+    '';
 
     artwork = {
       caption = "";
       url = "";
+      author = "";
     };
 
     events = [
     ];
+
+    editors = ''
+    '';
   };
 in
   issue

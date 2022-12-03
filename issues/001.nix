@@ -1,26 +1,35 @@
 let
   issue = {
     number = "001";
+    date = "2022-12-03";
 
     links = [
-      ''hello, this is a link to <a href="hello">here</a>''
+      {
+        text = ''hello, this is super interesting'';
+        url = "https://localhost/";
+      }
+    ];
+
+    news = [
+      "Wow, such a thing!"
     ];
 
     tips = ''
 
     '';
 
-    news = [
-      "Wow, such a thing!"
-    ];
-
     artwork = {
       caption = "";
       url = "";
+      author = "";
     };
 
     events = [
     ];
+
+    editors = ''
+      <p>Hello from the editorial team!</p>
+    '';
   };
 in
   issue
