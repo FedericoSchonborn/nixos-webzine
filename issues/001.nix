@@ -67,7 +67,7 @@ let
     ];
 
     editors = ''
-      <p>I'm pleased to announce the release of the first issue of this Webzine. I made a similar experiment with the OpenBSD webzine and it turned out it worked well, so why not do it for NixOS?</p>
+      <p>I'm pleased to announce the release of the first issue of the NixOS Webzine. I made a similar work with the <a href="https://webzine.puffy.cafe/" class="permalink">OpenBSD webzine</a> and it turned out it worked well, so why not do it for NixOS?</p>
       <p>The website is made of static HTML files generated entirely from a nix expression, it's super fun to add entries in it, and only have a few dependencies, feel free to contribute 🤘</p>
     '';
 
