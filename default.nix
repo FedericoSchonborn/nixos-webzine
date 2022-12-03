@@ -144,7 +144,7 @@ in
             <h2>Events</h2>
             <ul>
                 ${pkgs.lib.concatStringsSep "\n" (builtins.map (item: ''
-                <li>${item.text} [<a href="${item.url}" class="permalink">link</a>]</li>
+                <li><strong>${item.text}</strong>, ${item.date} in ${item.where} [<a href="${item.url}" class="permalink">link</a>]</li>
               '')
               issue.events)}
             </ul>
