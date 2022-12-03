@@ -53,7 +53,7 @@ in
             <link rel="alternate" type="application/rss+xml" href="${website.url}/atom.xml">
             <meta property="og:title" content="NixOS webzine issue ${issue.number}" />
             <meta property="og:url" content="${website.url}/issue-${issue.number}.html" />
-            <meta property="og:image" content="${website.url}/${issue.artwork.url}" />
+            <meta property="og:image" content="${website.url}/static/NixOS_logo.svg" />
             <meta property="og:type" content="website" />
             <meta property="og:locale" content="en_EN" />
             <title>NixOS webzine ${issue.number}</title>
