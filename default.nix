@@ -243,6 +243,7 @@ in
                   <li>Reddit: <a class="permalink" href="https://www.reddit.com/r/nixos/">Subreddit /r/nixos/</a></li>
                   <li>Matrix: channel <a class="permalink" href="https://matrix.to/#/#community:nixos.org">#community:nixos.org</a></li>
                   <li>Mastodon: Search for tag <em>#NixOS</em></li>
+                  <li><a class="permalink" href="https://discord.gg/RbvHtGa">Discord server</a></li>
                   <li>Twitter: <a class="permalink" href="https://twitter.com/hashtag/nixos">#nixos</a></li>
                 </ul>
               </article>
