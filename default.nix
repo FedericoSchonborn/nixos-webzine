@@ -282,7 +282,7 @@ in
    atom = pkgs.writeTextDir "atom.xml" ''
      <?xml version="1.0" encoding="utf-8"?>
        <feed xmlns="http://www.w3.org/2005/Atom">
-       <id>"${website.url}"</id>
+       <id>${website.url}/</id>
        <title>NixOS Webzine</title>
        <icon>${website.url}/static/NixOS_logo.svg</icon>
        <link rel="alternate" type="text/html" href="${website.url}/" />
