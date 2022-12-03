@@ -51,12 +51,13 @@ in
             <link rel="icon" type="image/png" sizes="16x16" href="/static/NixOS_logo.svg">
             <meta property="og:description" content="Webzine created by volunteers who are passionate about the NixOS project development." />
             <link rel="alternate" type="application/rss+xml" href="${website.url}/atom.xml">
-            <meta property="og:title" content="NixOS webzine issue ${issue.number}" />
+            <meta property="og:title" content="NixOS webzine issue #${issue.number}" />
             <meta property="og:url" content="${website.url}/issue-${issue.number}.html" />
             <meta property="og:image" content="${website.url}/static/NixOS_logo.svg" />
             <meta property="og:type" content="website" />
+            <meta property="og:description" content="Your tasty dose ☕ of reproducible NixOS news ❄️" />
             <meta property="og:locale" content="en_EN" />
-            <title>NixOS webzine ${issue.number}</title>
+            <title>NixOS webzine issue #${issue.number}</title>
             ${website.style}
           </head>
           <body>
@@ -199,7 +200,7 @@ in
             <link rel="icon" type="image/png" sizes="16x16" href="/static/NixOS_logo.svg">
             <link rel="alternate" type="application/rss+xml" href="${website.url}/atom.xml">
             <meta property="og:title" content="NixOS webzine" />
-            <meta property="og:description" content="Webzine created by volunteers who are passionate about the NixOS project development." />
+            <meta property="og:description" content="Webzine created by volunteers who are passionate about the NixOS project development. Your tasty dose ☕ of reproducible NixOS news ❄️" />
             <meta property="og:url" content="${website.url}/index.html" />
             <meta property="og:image" content="${website.url}/static/NixOS_logo.svg" />
             <meta property="og:type" content="website" />
