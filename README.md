@@ -8,7 +8,7 @@ the NixOS webzine ❄️
 
 Run `nix-build` in the project directory, and get the HTML files in the `result/` directory.
 
-# Contribute
+# Contributing
 
 Feel free to send merge requests for adding links, events, news, artworks etc...
 
