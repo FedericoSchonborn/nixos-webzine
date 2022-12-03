@@ -7,6 +7,7 @@
 
   website = {
     url = "https://webzine.snowflake.ovh";
+    domain = "webzine.snowflake.ovh";
     style = builtins.readFile ./style.html;
     header = ''
       <header>
@@ -296,7 +297,7 @@ in
        in ''
          <entry>
            <title type="text">Issue #${issue.number}</title>
-           <id>tag:${website.url},2022:${issue.number}</id>
+           <id>tag:${website.domain},2022:/issue-${issue.number}.html</id>
            <updated>${issue.date}T00:00:00Z</updated>
            <link rel="alternate" type="text/html" href="${website.url}/issue-${issue.number}.html" />
            <summary type="html">
