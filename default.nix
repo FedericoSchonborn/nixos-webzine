@@ -180,7 +180,7 @@ in
             </main>
             <footer>
               <hr />
-              <p id="license">Content under <a class="permalink" href="https://creativecommons.org/licenses/by/3.0/legalcode">CC-BY-NC-3.0</a>.
+              <p id="license">Content under <a class="permalink" href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">CC-BY-NC-SA-4.0</a>.
                 Artworks are under their own licenses. <a class="permalink" href="atom.xml">Feed ATOM</a>
               </p>
             </footer>
@@ -270,7 +270,7 @@ in
             </main>
             <footer>
               <hr />
-              <p id="license">Content under <a class="permalink" href="https://creativecommons.org/licenses/by/3.0/legalcode">CC-BY-NC-3.0</a>.
+              <p id="license">Content under <a class="permalink" href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">CC-BY-NC-SA-4.0</a>.
                 Artworks are under their own licenses. <a class="permalink" href="atom.xml">Feed ATOM</a>
               </p>
             </footer>
