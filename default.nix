@@ -241,7 +241,7 @@ in
                   <li>Reddit: <a class="permalink" href="https://www.reddit.com/r/nixos/">Subreddit /r/nixos/</a></li>
                   <li>Mastodon: Search for tag <em>#NixOS</em></li>
                   <li>Discord: <a class="permalink" href="https://discord.gg/RbvHtGa">user group</a></li>
-                  <li>Telegram: <a class="permalink" href="https://t.me/nixos_en">English NixOS user group</a>, <a class="permalink" href="https://t.me/nixos_en">English Nix user group</a>, <a class="permalink" href="https://t.me/nixos_webzine">Webzine group</a></li>
+                  <li>Telegram: <a class="permalink" href="https://t.me/nixos_en">English NixOS user group</a>, <a class="permalink" href="https://t.me/nix_org">English Nix user group</a>, <a class="permalink" href="https://t.me/nixos_webzine">Webzine group</a></li>
                   <li>Twitter: <a class="permalink" href="https://twitter.com/hashtag/nixos">#nixos</a></li>
                   <li><a class="permalink" href="atom.xml">Webzine feed</a></li>
                 </ul>
