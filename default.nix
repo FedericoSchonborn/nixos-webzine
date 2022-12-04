@@ -236,14 +236,14 @@ in
                 <h2>Community</h2>
                 <p>Looking to get in touch with NixOS users? Here are a few ways to join them.</p>
                 <ul>
-                  <li><a class="permalink" href="atom.xml">Webzine feed</a></li>
                   <li><a class="permalink" href="https://discourse.nixos.org">Official discourse forum</a></li>
+                  <li>Matrix: official communication channel <a class="permalink" href="https://matrix.to/#/#community:nixos.org">#community:nixos.org</a></li>
                   <li>Reddit: <a class="permalink" href="https://www.reddit.com/r/nixos/">Subreddit /r/nixos/</a></li>
-                  <li>Matrix: channel <a class="permalink" href="https://matrix.to/#/#community:nixos.org">#community:nixos.org</a></li>
                   <li>Mastodon: Search for tag <em>#NixOS</em></li>
-                  <li><a class="permalink" href="https://discord.gg/RbvHtGa">Discord server</a></li>
-                  <li>Telegram: <a class="permalink" href="https://t.me/nixos_en">English users group</a>, <a class="permalink href="https://t.me/nixos_webzine">webzine feed</a></li>
+                  <li>Discord: <a class="permalink" href="https://discord.gg/RbvHtGa">user group</a></li>
+                  <li>Telegram: <a class="permalink" href="https://t.me/nixos_en">English NixOS user group</a>, <a class="permalink" href="https://t.me/nixos_en">English Nix user group</a>, <a class="permalink href="https://t.me/nixos_webzine">webzine feed</a></li>
                   <li>Twitter: <a class="permalink" href="https://twitter.com/hashtag/nixos">#nixos</a></li>
+                  <li><a class="permalink" href="atom.xml">Webzine feed</a></li>
                 </ul>
               </article>
 
