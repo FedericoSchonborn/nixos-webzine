@@ -16,54 +16,8 @@
       </header>
     '';
   };
-in
-  pkgs.stdenv.mkDerivation rec {
-    name = "nixos-webzine";
 
-    src = ./static;
-
-    builder = pkgs.writeShellScript "builder.sh" (
-      ''
-        ${pkgs.busybox}/bin/mkdir -p $out/static
-        ${pkgs.busybox}/bin/cp ${index_generator}/* $out/
-        ${pkgs.busybox}/bin/cp ${atom}/* $out/
-        ${pkgs.busybox}/bin/cp -fr $src/* $out/static/
-      ''
-      + (
-        pkgs.lib.concatStringsSep "\n"
-        (builtins.map (file: ''
-            ${pkgs.busybox}/bin/cp ${file}/* $out/
-          '')
-          pages_generator)
-      )
-    );
-
-    pages_generator = (builtins.map (element: let
-      issue = import element;
-    in
-      pkgs.writeTextDir "issue-${issue.number}.html" ''
-        <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <meta charset="utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link rel="icon" type="image/png" sizes="32x32" href="/static/NixOS_logo.svg">
-            <link rel="icon" type="image/png" sizes="16x16" href="/static/NixOS_logo.svg">
-            <meta property="og:description" content="Webzine created by volunteers who are passionate about the NixOS project development." />
-            <link rel="alternate" type="application/rss+xml" href="${website.url}/atom.xml">
-            <meta property="og:title" content="NixOS webzine issue #${issue.number}" />
-            <meta property="og:url" content="${website.url}/issue-${issue.number}.html" />
-            <meta property="og:image" content="${website.url}/static/NixOS_logo.svg" />
-            <meta property="og:type" content="website" />
-            <meta property="og:description" content="Your tasty dose ☕ of reproducible NixOS news ❄️" />
-            <meta property="og:locale" content="en_EN" />
-            <title>NixOS webzine issue #${issue.number}</title>
-            ${website.style}
-          </head>
-          <body>
-            ${website.header}
-            <main>
-
+    issue_html = issue: ''
           <!-- NEWS -->
           ${
           if (builtins.length issue.news) != 0
@@ -177,6 +131,55 @@ in
           ''
           else ""
         }
+        '';
+in
+  pkgs.stdenv.mkDerivation rec {
+    name = "nixos-webzine";
+
+    src = ./static;
+
+    builder = pkgs.writeShellScript "builder.sh" (
+      ''
+        ${pkgs.busybox}/bin/mkdir -p $out/static
+        ${pkgs.busybox}/bin/cp ${index_generator}/* $out/
+        ${pkgs.busybox}/bin/cp ${atom}/* $out/
+        ${pkgs.busybox}/bin/cp -fr $src/* $out/static/
+      ''
+      + (
+        pkgs.lib.concatStringsSep "\n"
+        (builtins.map (file: ''
+            ${pkgs.busybox}/bin/cp ${file}/* $out/
+          '')
+          pages_generator)
+      )
+    );
+
+    pages_generator = (builtins.map (element: let
+      issue = import element;
+    in
+      pkgs.writeTextDir "issue-${issue.number}.html" ''
+        <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link rel="icon" type="image/png" sizes="32x32" href="/static/NixOS_logo.svg">
+            <link rel="icon" type="image/png" sizes="16x16" href="/static/NixOS_logo.svg">
+            <meta property="og:description" content="Webzine created by volunteers who are passionate about the NixOS project development." />
+            <link rel="alternate" type="application/rss+xml" href="${website.url}/atom.xml">
+            <meta property="og:title" content="NixOS webzine issue #${issue.number}" />
+            <meta property="og:url" content="${website.url}/issue-${issue.number}.html" />
+            <meta property="og:image" content="${website.url}/static/NixOS_logo.svg" />
+            <meta property="og:type" content="website" />
+            <meta property="og:description" content="Your tasty dose ☕ of reproducible NixOS news ❄️" />
+            <meta property="og:locale" content="en_EN" />
+            <title>NixOS webzine issue #${issue.number}</title>
+            ${website.style}
+          </head>
+          <body>
+            ${website.header}
+            <main>
+              ${ issue_html issue }
             </main>
             <footer>
               <hr />
@@ -302,21 +305,13 @@ in
            <link rel="alternate" type="text/html" href="${website.url}/issue-${issue.number}.html" />
            <summary type="html">
            <![CDATA[
-              ${
-              if (builtins.length issue.news) != 0
-              then ''
-                <ul>
-                    ${pkgs.lib.concatStringsSep "\n" (builtins.map (item: ''
-                    <li>${item}</li>
-                  '')
-                  issue.news)}
-                </ul>
-              ''
-              else ""
-            }
+            <main>
+              ${ issue_html issue }
+            </main>
            ]]>
            </summary>
          </entry>
        '') (pkgs.lib.lists.reverseList issues))}
        </feed>'';
+
   }
