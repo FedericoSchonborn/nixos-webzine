@@ -3,6 +3,7 @@
 
   issues = [
     ./issues/001.nix
+    ./issues/002.nix
   ];
 
   website = {
@@ -247,6 +248,8 @@ in
                   <li>Telegram: <a class="permalink" href="https://t.me/nixos_en">English NixOS user group</a>, <a class="permalink" href="https://t.me/nix_org">English Nix user group</a>, <a class="permalink" href="https://t.me/nixos_webzine">Webzine channel</a></li>
                   <li>Twitter: <a class="permalink" href="https://twitter.com/hashtag/nixos">#nixos</a></li>
                   <li><a class="permalink" href="atom.xml">Webzine feed</a></li>
+                  <li><a class="permalink" href="https://discourse.nixos.org/t/german-casual-mumble-meetup-every-wednesday-19-00-23-00-cest/7941">"[German] Casual mumble weekly meetup"</a></li>
+                  <li><a class="permalink" href="https://discourse.nixos.org/t/livnug-liverpool-nix-nixos-user-group/23805">LivNUG - Liverpool Nix/NixOS User Group</a></li>
                 </ul>
               </article>
 
